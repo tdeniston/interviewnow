@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function ($scope, $rootScope, $timeout, spUtil, $location, $window, nowAttachmentHandler) {
+	$scope.mandatory = [];
+	$scope.data.show_sql = false;
+	$scope.saveButtonSuffix = spUtil.getAccelerator('s');
+	$scope.adminMenu = {
+		encodedPageUrl: encodeURIComponent($location.url()),
+		getClientScriptCount: function() {
+			var count = 0;
+			if ($scope.data.f.client_script) {
+				count += $scope.data.f.client_script.onChange.length;
+				count += $scope.data.f.client_script.onLoad.length;
+				count += $scope.data.f.client_script.onSubmit.length;
+			}
+			return count;
+		}
+	};
+
+	$scope.getUIActions = function(type) {
+		if ($scope.data.disableUIActions)
+			return [];
+		if (type) {
+			return $scope.data.f._ui_actions.filter(function(action) {
+				//We handle the primary action button separately.
+				return !action.primary && action['is_' + type];
+			});
+		} else {
+			return $scope.data.f._ui_actions;
+		}
+	}
+
+	$scope.getPrimaryAction = function() {
+		var primaryActions = $scope.data.f._ui_actions.filter(function(action) {
+			return action.primary;
+		});
+		return (primaryActions.length) ? primaryActions[0] : null;
+	}
+
+	$scope.getUIActionContextMenu = function(event) {
+		var menu = [];
+		if (event.ctrlKey)
+			return menu;
+
+		var contextActions = $scope.getUIActions('context');
+		contextActions.forEach(function(action) {
+			menu.push([action.name, function() {
+				$scope.triggerUIAction(action);
+			}]);
+		});
+
+		if (contextActions.length > 0)
+			menu.push(null);
+		menu.push([$scope.data.exportPDFMsg, function() {exportPDF("");}]);
+		menu.push([$scope.data.exportPDFLandMsg, function() {exportPDF('true');}]);
+
+		return menu;
+	}
+
+	function exportPDF(landscape) {
+		$window.open("/" + $scope.data.f.table + ".do?PDF&landscape=" + landscape + "&sys_id=" + $scope.data.sys_id + "&sysparm_view=" + $scope.data.f.view);
+	}
+
+	//trigger the primary UI Action on save (if there is one)
+	var deregister = $scope.$on('$sp.save', function() {
+		var primaryAction = $scope.getPrimaryAction();
+		if (primaryAction)
+			$scope.triggerUIAction(primaryAction);
+	});
+	$scope.$on('$destroy', function() {deregister()});
+
+	$scope.triggerUIAction = function(action) {
+		if ($scope.data.disableUIActions)
+			return;
+
+		if (g_form) {
+			$timeout(function() {
+				g_form.submit(action.action_name || action.sys_id);
+			});
+		}
+	}
+
+	$scope.$on("spModel.uiActionComplete", function(evt, response) {
+		var sysID = (response.isInsert) ? response.sys_id : $scope.data.sys_id;
+		loadForm($scope.data.table, sysID).then(constructResponseHandler(response));
+	});
+
+	function constructResponseHandler(response) {
+		return function() {
+			var message;
+			var eventName = "sp.form.record.updated";
+			if (response.isInsert) {
+				message = $scope.data.recordAddedMsg;
+				var search = $location.search();
+				search.sys_id = response.sys_id;
+				search.spa = 1;
+				$location.search(search).replace();
+			} else
+				message = $scope.data.updatedMsg;
+
+			$scope.data.hideRelatedLists = hideRelatedLists();
+			$scope.$emit(eventName, $scope.data.f._fields);
+			$rootScope.$broadcast(eventName, $scope.data.f._fields);
+			$scope.status = message;
+			spUtil.addTrivialMessage(message);
+			$timeout(clearStatus, 2000);
+		}
+	}
+
+	var ctrl = this;
+	// switch forms
+	var unregister = $scope.$on('$sp.list.click', onListClick);
+	$scope.$on("$destroy", function() {
+		unregister();
+	})
+
+	function onListClick(evt,arg) {
+		loadForm(arg.table, arg.sys_id);
+	}
+
+	function loadForm(table, sys_id){
+		var f = {};
+		$scope.data.table = f.table = table;
+		$scope.data.sys_id = f.sys_id = sys_id;
+		f.view = $scope.data.view;
+		return $scope.server.update().then(setupAttachmentHandler);
+	}
+
+	function openRelatedList(e, queryString){
+		// todo: Open this in a modal
+		$location.search(queryString);
+		e.preventDefault();
+	}
+
+	$scope.$on('spModel.fields.rendered', function() {
+		if (ctrl.panels)
+			ctrl.panels.removeClass('shift-out').addClass('shift-in');
+	});
+
+	var g_form;
+	$scope.$on('spModel.gForm.initialized', function(e, gFormInstance) {
+		if (gFormInstance.getTableName() == $scope.data.f.table)
+			g_form = gFormInstance;
+	});
+
+	// Show or hide related lists
+	$scope.$watch('data.f._related_lists', function(){
+		$scope.data.hideRelatedLists = hideRelatedLists();
+	}, true);
+
+	function hideRelatedLists() {
+		if (!$scope.data.f._related_lists)
+			return true;
+
+		if ($scope.options.hideRelatedLists == true)
+			return true;
+
+		if ($scope.data.sys_id == '-1')
+			return true;
+
+		// If all related lists are visible=false then hide
+		if ($scope.data.f._related_lists.length > 0) {
+			for (var i in $scope.data.f._related_lists) {
+				var list = $scope.data.f._related_lists[i];
+				if (list.visible) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	function clearStatus() {
+		$scope.status = "";
+	}
+
+	function setupAttachmentHandler(){
+		$scope.attachmentHandler = new nowAttachmentHandler(appendSuccess, appendError);
+
+		$timeout(function() {
+			var sizeLimit = 1024 * 1024 * 24; // 24MB
+			$scope.attachmentHandler.setParams($scope.data.table, $scope.data.f._attachmentGUID, sizeLimit);
+		});
+
+		$scope.$on('dialog.upload_too_large.show', function(e){
+			console.log($scope.data.largeAttachmentMsg);
+			spUtil.addErrorMessage($scope.data.largeAttachmentMsg);
+		});
+	}
+	setupAttachmentHandler();
+
+	function appendSuccess() {
+		spUtil.addTrivialMessage($scope.data.attachmentUploadSuccessMsg);
+		$scope.$broadcast("sp.attachments.update", $scope.data.f._attachmentGUID);
+	}
+
+	function appendError(error) {
+		$scope.errorMessages.push(error);
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.panel-title {
+  word-wrap: break-word;
+}
+
+.comment {
+	font-weight: bold;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+.mce-panel, .mce-btn {
+	background-image: none;
+	background-color: #f0f3f4;
+}
+
+.action-btn {
+  margin-right: 5px;
+}
+
+.timeline-container {
+   max-height: 50vh;
+   height: 100%;
+   overflow-y: auto;
+}
+
+.panel .panel {
+    height: auto !important;
+}
+
+.attachment-button {
+  .glyphicon-paperclip {
+    font-size: 18px;
+  }
+}
+
+.empty-state-wrapper {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10vh 20px 20px;
+
+  .empty-state {
+    border: 1px solid #e7e9eb;
+    border-radius: 10px;
+    max-width: 700px;
+    padding: 30px 40px 20px;
+    position: relative;
+
+    .empty-state-badge {
+      top: -36px;
+      left: 50%;
+      position: absolute;
+      height: 72px;
+      width: 72px;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      border-radius: 100%;
+      color: #ffffff;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      font-size: 40px;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      margin-left: -36px;
+      text-align: center;
+    }
+
+    .empty-state-header {
+      font-size: 30px;
+      text-align: center;
+      color: #343d47;
+    }
+
+    .empty-state-content {
+      ul {
+        list-style: disc outside;
+        margin: 0 0 10px 0;
+        padding: 0 0 0 30px;
+      }
+    }
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>inowform</id>
+        <internal>false</internal>
+        <link/>
+        <name>inowForm</name>
+        <option_schema>[{"name":"disableUIActions","label":"Disable UI Actions on Form","type":"boolean"},{"name":"showFormView","label":"Display current form view","type":"boolean"},{"name":"omitHeaderOptions","label":"Omit header options icon","type":"boolean"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[// form functionality - URL parameter driven
+(function($sp, input, data, options, gs) {
+  /* "use strict"; -linter issues */
+  // populate the 'data' variable
+	data.attachmentUploadSuccessMsg = gs.getMessage("Attachment upload was successful");
+	data.recordAddedMsg = gs.getMessage("Record Added");
+	data.updatedMsg = gs.getMessage("updated_uppercase");
+	data.exportPDFMsg = gs.getMessage("Export to PDF");
+	data.exportPDFLandMsg = gs.getMessage("Export to PDF (landscape)");
+	data.addAttachmentMsg = gs.getMessage("Add an attachment");
+	data.largeAttachmentMsg = gs.getMessage("Attached files must be smaller than {0} - please try again", "24MB");
+
+	data.isAdmin = gs.hasRightsTo('sp/configure.all/execute', null);
+	data.emptyStateTemplate = options.empty_state_template;
+	data.disableUIActions = options.disableUIActions || false;
+	data.hideRelatedLists = options.hideRelatedLists || false;
+
+	if (input) {
+		data.table = input.table;
+		data.sys_id = input.sys_id;
+		data.view = input.view;
+		var result = {};
+		if (input._fields)
+			result = $sp.saveRecord(input.table, input.sys_id, input._fields);
+
+		if (input.sys_id == '-1'){
+			data.sys_id = result.sys_id;
+			data.isNewRecord = true;
+		}
+	} else {
+		data.table = $sp.getParameter("t") || $sp.getParameter("table") || $sp.getParameter("sl_table") || options.table;
+		data.sys_id = $sp.getParameter("sys_id") || $sp.getParameter("sl_sys_id") || options.sys_id;
+		data.view = $sp.getParameter("v") || $sp.getParameter("view") || options.view; // no default
+	}
+
+	data.query = $sp.getParameter("query") || options.query;
+	data.f = {};
+	if (!data.table)
+		return;
+
+	if (!GlideTableDescriptor.isValid(data.table))
+		return;
+
+	if (!data.sys_id)
+		return;
+
+	var rec = $sp.getRecord(data.table, data.sys_id);
+	data.isValid = rec.isValid() || data.sys_id == "-1";
+	if (!data.isValid)
+		return;
+
+	data.table = rec.getRecordClassName();
+	data.tableHierarchy = GlideDBObjectManager.getTables(data.table).toArray().join();
+	data.canWrite = rec.canWrite();
+	data.canAttach = data.canWrite && gs.hasRole(gs.getProperty('glide.attachment.role')) && !GlideTableDescriptor.get(data.table).getED().getBooleanAttribute("no_attachment");
+	data.f = $sp.getForm(data.table, data.sys_id, data.query, data.view);
+
+	// Activity formatter is hardcoded to set specific options
+	for (var f in data.f._formatters) {
+		var fm = data.f._formatters[f];
+		if (fm.formatter == "activity.xml") {
+			fm.hardcoded = true;
+			fm.widgetInstance = $sp.getWidget('widget-ticket-conversation',
+																{table: data.table,
+																 sys_id: data.sys_id,
+																 includeExtended: true,
+																 title: "${Activity}",
+																 placeholder: "${Add a comment}",
+																 btnLabel: "${Post}"});
+		} else
+			fm.widgetInstance = $sp.getWidget(fm.widget, data);
+	}
+})($sp, input, data, options, gs);]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-05-09 19:28:41</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>93e3337a4f6ab600d1f8b4e18110c758</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>inowForm</sys_name>
+        <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+        <sys_update_name>sp_widget_93e3337a4f6ab600d1f8b4e18110c758</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-05-09 19:35:52</sys_updated_on>
+        <template><![CDATA[<div ng-if="!data.isValid && !data.emptyStateTemplate" class="panel panel-default">
+  <div class="panel-body wrapper-lg text-center">
+    ${Record not found}
+  </div>
+</div>
+
+<div ng-if="!data.isValid && data.emptyStateTemplate" class="panel-shift">
+  <div class="empty-state-wrapper panel panel-default" ng-include="data.emptyStateTemplate"></div>
+</div>
+
+<div ng-if="data.isValid" class="panel-shift">
+  <div class="" ng-if="!data.f._view.length && data.hideRelatedLists && data.emptyStateTemplate">
+    <div class="empty-state-wrapper panel panel-default" ng-include="data.emptyStateTemplate"></div>
+  </div>
+
+  <div class="" ng-if="!data.f._view.length && data.hideRelatedLists && !data.emptyStateTemplate">
+    <div class="panel panel-default">
+      <div class="panel-heading"><span class="panel-title">{{data.f.title}}</span> <span ng-if="options.showFormView == 'true' && data.f.view != ''">[{{data.f.view_title}} view]</span></div>
+      <div class="panel-body wrapper-lg text-center">
+        ${No elements to display}
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default" ng-if="data.f._view.length || !data.hideRelatedLists" >
+    <div class="panel-heading" ng-if="data.f.title.length" sp-context-menu="getUIActionContextMenu(event)">
+      	<span class="dropdown m-r-xs" ng-if="(data.isAdmin || getUIActions('context').length > 0) && options.omitHeaderOptions != 'true'">
+            <span class="dropdown-toggle glyphicon glyphicon-menu-hamburger" style="line-height: 1.4em" id="adminMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></span>
+            <ul class="dropdown-menu" aria-labelledby="adminMenu">
+              <li ng-if="::data.isAdmin"><a href="/{{data.f.table}}.do?sys_id={{data.f.sys_id}}" target="_blank">${Open in platform}</a></li>
+              <li ng-if="::data.isAdmin" class="dropdown-header">${Configure}</li>
+              <li ng-if="::data.isAdmin"><a href="/slushbucket.do?sysparm_referring_url={{adminMenu.encodedPageUrl}}&sysparm_list={{data.f._sections[0].id}}&sysparm_form=section&sysparm_view={{data.f.view}}" target="_blank">${Form Layout}</a></li>
+              <li ng-if="::data.isAdmin"><a href="/slushbucket.do?sysparm_referring_url={{adminMenu.encodedPageUrl}}&sysparm_list={{data.f.table}}&sysparm_form=related_list&sysparm_view={{data.f.view}}" target="_blank">${Related Lists}</a></li>
+              <li ng-if="::data.isAdmin"><a href="?id=lf&table=sys_ui_policy&filter=table%3D{{data.f.table}}%5EORtableIN{{data.tableHierarchy}}%5Eactive%3Dtrue%5Eui_type%3D1%5EORui_type%3D10" ng-click="openRelatedList($event, {id:'lf', table: 'sys_ui_policy', filter: 'table%3D{{data.f.table}}%5EORtableIN{{data.f.table}},sys_metadata%5Eactive%3Dtrue%5Eui_type%3D1%5EORui_type%3D10'})">${UI Policies} <span class="badge pull-right" ng-if="f.policy.length">{{f.policy.length}}</span></a></li>
+              <li ng-if="::data.isAdmin"><a href="?id=lf&table=sys_script_client&filter=table%3D{{data.f.table}}%5EORtableIN{{data.tableHierarchy}}%5Eactive%3Dtrue%5Eui_type%3D1%5EORui_type%3D10" ng-click="openRelatedList($event, {id: 'lf', table: 'sys_script_client', filter: 'table%3D{{data.f.table}}%5EORtableIN{{data.f.table}},sys_metadata%5Eactive%3Dtrue%5Eui_type%3D1%5EORui_type%3D10'})">${Client Scripts} <span class="badge pull-right" ng-if="adminMenu.getClientScriptCount()">{{adminMenu.getClientScriptCount()}}</span></a></li>
+              <li ng-if="getUIActions('context').length > 0 &&  data.isAdmin" role="separator" class="divider"></li>
+              <li ng-repeat="action in getUIActions('context')"><a href="" ng-click="triggerUIAction(action)">{{action.name}}</a></li>
+              <li ng-if="::data.isAdmin || getUIActions('context').length > 0" role="separator" class="divider"></li>
+              <li><a target="_new" href="/{{data.f.table}}.do?PDF&sys_id={{data.sys_id}}&sysparm_view={{data.f.view}}">${Export to PDF}</a></li>
+              <li><a target="_new" href="/{{data.f.table}}.do?PDF&landscape=true&sys_id={{data.sys_id}}&sysparm_view={{data.f.view}}">${Export to PDF (landscape)}</a></li>
+            </ul>
+        </span>
+      <span class="panel-title">{{data.f.title}}</span> <span ng-if="options.showFormView == 'true' && data.f.view != ''">[{{data.f.view_title}} view]</span>
+      <div ng-if="attachmentHandler && data.canAttach" title="{{::data.addAttachmentMsg}}" class="pull-right attachment-button">
+      	<sp-attachment-button></sp-attachment-button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <!-- performance debug -->
+      <div ng-if="data.show_sql">
+        <div class="comment">
+          <span ng-if="data.f._perf.sql_count">${SQL Statements {{data.f._perf.sql_count}}}, </span>
+          <span>${Time {{data.f._perf.time}}}</span>
+        </div>
+        <div ng-repeat="s in data.f._perf.sql" class="{{s.type}}">
+          {{s.statement}}
+        </div>
+      </div>
+      <!-- attachments -->
+      <sp-attachment-manager table="data.table" sys-id="data.f._attachmentGUID" omit-edit="!data.canAttach"></sp-attachment-manager>
+      <!-- form -->
+      <div>
+        <sp-model form_model="data.f" mandatory="mandatory"></sp-model>
+      </div>
+      <!-- UI Action Links -->
+      <div ng-if="getUIActions('link').length > 0">
+        <label style="margin: 0;">${Related Links}</label>
+        <div ng-repeat="action in getUIActions('link')">
+          <a href ng-click="triggerUIAction(action)">{{action.name}}</a>
+        </div>
+      </div>
+      <!-- related lists -->
+      <div ng-if="!data.hideRelatedLists">
+        <label style="margin: 0">${Related Lists}</label>
+        <div style="margin-bottom: 7px; padding-bottom: 7px; border-bottom: 1px solid #f5f5f5;">
+          <span ng-repeat="rl in data.f._related_lists" ng-if="rl.visible">
+            <a ng-if="rl.type != 'REL'" href="?id=lf&table={{rl.table}}&filter={{rl.field}}%3D{{data.f.sys_id}}&view={{data.f.view}}" ng-click="openRelatedList($event, {id: 'lf', table: '{{rl.table}}', filter: '{{rl.field}}%3D{{data.f.sys_id}}'})">{{rl.plural}}
+              <span class="label label-as-badge label-primary" ng-if="rl.count">{{rl.count}}</span>
+            </a>
+            <a ng-if="rl.type == 'REL'" href="?id=lf&table={{rl.table}}&relationship_id={{rl.relationship_id}}&apply_to={{rl.apply_to}}&apply_to_sys_id={{rl.apply_to_sys_id}}&view={{data.f.view}}" ng-click="openRelatedList($event, {id: 'lf', table: '{{rl.table}}', apply_to: '{{rl.apply_to}}', apply_to_sys_id: '{{rl.apply_to_sys_id}}', relationship_id: '{{rl.relationship_id}}'})">{{rl.label}}
+              <span class="label label-as-badge label-primary" ng-if="rl.count">{{rl.count}}</span>
+            </a>
+            <span ng-if="!$last" style="padding-left: .5em; padding-right: .5em;"> | </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button ng-mousedown="triggerUIAction(action)" ng-repeat="action in getUIActions('button')" class="btn btn-default action-btn">{{action.name}}</button>
+      <span>{{status}}</span>
+      <button ng-if="getPrimaryAction()" type="submit" ng-mousedown="triggerUIAction(getPrimaryAction())" class="btn btn-primary action-btn pull-right">${Save} <span ng-if="saveButtonSuffix">(${{{saveButtonSuffix}}})</span></button>
+      <div style="clear: both;"></div>
+      <div ng-if="mandatory.length" class="alert alert-info" style="margin-top: .5em">
+        <span ng-if="mandatory.length > 0">${Required information} </span>
+        <span ng-repeat="f in mandatory" class="label label-danger" style="margin-right: .5em; display: inline-block;">{{f.label}}</span>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

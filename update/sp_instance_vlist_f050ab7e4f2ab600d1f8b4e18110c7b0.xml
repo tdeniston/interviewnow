@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_instance_vlist">
+    <sp_instance_vlist action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>primary</color>
+        <css/>
+        <display_field>name</display_field>
+        <field_list/>
+        <filter/>
+        <glyph>file-text</glyph>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>0</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">4cd1d3f64f2ab600d1f8b4e18110c707</sp_column>
+        <sp_page display_value="form">ed5f8ec347730200ba13a5554ee49046</sp_page>
+        <sp_widget display_value="Simple List">5b255672cb03020000f8d856634c9c28</sp_widget>
+        <sys_class_name>sp_instance_vlist</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-05-09 18:03:03</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>f050ab7e4f2ab600d1f8b4e18110c7b0</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>View Candidate Profile</sys_name>
+        <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+        <sys_update_name>sp_instance_vlist_f050ab7e4f2ab600d1f8b4e18110c7b0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-05-09 19:40:39</sys_updated_on>
+        <table>x_snc_interviewnw_candidate_profile</table>
+        <title>View Candidate Profile</title>
+        <url/>
+        <widget_parameters/>
+    </sp_instance_vlist>
+    <sys_translated_text action="delete_multiple" query="documentkey=f050ab7e4f2ab600d1f8b4e18110c7b0"/>
+</record_update>

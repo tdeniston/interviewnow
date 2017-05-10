@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_number">
+    <sys_number action="INSERT_OR_UPDATE">
+        <category display_value="" name="x_snc_interviewnw_candidate_profile">x_snc_interviewnw_candidate_profile</category>
+        <maximum_digits>7</maximum_digits>
+        <number>1000</number>
+        <prefix>PRF</prefix>
+        <sys_class_name>sys_number</sys_class_name>
+        <sys_created_by>abhinay</sys_created_by>
+        <sys_created_on>2017-05-09 15:21:08</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>784bba3e13ee760008ae79304244b07f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>PRF</sys_name>
+        <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+        <sys_update_name>sys_number_784bba3e13ee760008ae79304244b07f</sys_update_name>
+        <sys_updated_by>abhinay</sys_updated_by>
+        <sys_updated_on>2017-05-09 15:21:08</sys_updated_on>
+    </sys_number>
+</record_update>

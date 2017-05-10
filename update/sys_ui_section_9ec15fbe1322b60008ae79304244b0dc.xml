@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="" section_id="9ec15fbe1322b60008ae79304244b0dc" sys_domain="global" table="x_snc_interviewnw_job_positions" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>job_title</element>
+            <position>0</position>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:16:28</sys_created_on>
+            <sys_id>d96327be1362b60008ae79304244b050</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_interviewnw_job_positions" sys_domain="global" view="Default view">9ec15fbe1322b60008ae79304244b0dc</sys_ui_section>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:16:28</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>1</position>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:16:28</sys_created_on>
+            <sys_id>5d6327be1362b60008ae79304244b050</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_interviewnw_job_positions" sys_domain="global" view="Default view">9ec15fbe1322b60008ae79304244b0dc</sys_ui_section>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:16:28</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>job_grade</element>
+            <position>2</position>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:16:28</sys_created_on>
+            <sys_id>dd6327be1362b60008ae79304244b050</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_interviewnw_job_positions" sys_domain="global" view="Default view">9ec15fbe1322b60008ae79304244b0dc</sys_ui_section>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:16:28</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>job_classification</element>
+            <position>3</position>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:16:28</sys_created_on>
+            <sys_id>516327be1362b60008ae79304244b051</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_interviewnw_job_positions" sys_domain="global" view="Default view">9ec15fbe1322b60008ae79304244b0dc</sys_ui_section>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:16:28</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>4</position>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:16:28</sys_created_on>
+            <sys_id>d16327be1362b60008ae79304244b051</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_interviewnw_job_positions" sys_domain="global" view="Default view">9ec15fbe1322b60008ae79304244b0dc</sys_ui_section>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:16:28</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>department</element>
+            <position>5</position>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:16:28</sys_created_on>
+            <sys_id>556327be1362b60008ae79304244b051</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_interviewnw_job_positions" sys_domain="global" view="Default view">9ec15fbe1322b60008ae79304244b0dc</sys_ui_section>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:16:28</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>6</position>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:16:28</sys_created_on>
+            <sys_id>d56327be1362b60008ae79304244b051</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_interviewnw_job_positions" sys_domain="global" view="Default view">9ec15fbe1322b60008ae79304244b0dc</sys_ui_section>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:16:28</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_snc_interviewnw_job_positions</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>abhinay</sys_created_by>
+            <sys_created_on>2017-05-09 16:59:32</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9ec15fbe1322b60008ae79304244b0dc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_interviewnw_job_positions</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+            <sys_update_name>sys_ui_section_9ec15fbe1322b60008ae79304244b0dc</sys_update_name>
+            <sys_updated_by>abhinay</sys_updated_by>
+            <sys_updated_on>2017-05-09 16:59:32</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

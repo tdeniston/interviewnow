@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="InterviewNOW">814bba3e13ee760008ae79304244b08a</application>
+        <filter/>
+        <name>Candidate Profile</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_snc_interviewnw.user</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>abhinay</sys_created_by>
+        <sys_created_on>2017-05-09 15:21:08</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>854bba3e13ee760008ae79304244b08c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Candidate Profile</sys_name>
+        <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+        <sys_update_name>sys_ui_module_854bba3e13ee760008ae79304244b08c</sys_update_name>
+        <sys_updated_by>abhinay</sys_updated_by>
+        <sys_updated_on>2017-05-09 15:21:08</sys_updated_on>
+        <table>x_snc_interviewnw_candidate_profile</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+</record_update>

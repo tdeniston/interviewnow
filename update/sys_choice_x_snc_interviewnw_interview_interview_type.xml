@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="interview_type" table="x_snc_interviewnw_interview" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>interview_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>In-person</label>
+            <language>en</language>
+            <name>x_snc_interviewnw_interview</name>
+            <sequence>0</sequence>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:13:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7cb2ef3e1362b60008ae79304244b083</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:13:26</sys_updated_on>
+            <value>In-person</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>interview_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Phone</label>
+            <language>en</language>
+            <name>x_snc_interviewnw_interview</name>
+            <sequence>1</sequence>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:13:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7cb2ef3e1362b60008ae79304244b085</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:13:26</sys_updated_on>
+            <value>Phone</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>interview_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Video</label>
+            <language>en</language>
+            <name>x_snc_interviewnw_interview</name>
+            <sequence>2</sequence>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:13:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f4b2ef3e1362b60008ae79304244b087</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:13:26</sys_updated_on>
+            <value>Video</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>interview_type</element>
+            <name>x_snc_interviewnw_interview</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:13:26</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>38b2ef3e1362b60008ae79304244b085</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_name>interview_type</sys_name>
+            <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+            <sys_update_name>sys_choice_x_snc_interviewnw_interview_interview_type</sys_update_name>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-10 14:00:54</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

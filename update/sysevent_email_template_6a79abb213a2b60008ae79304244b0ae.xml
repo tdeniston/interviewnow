@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sysevent_email_template">
+    <sysevent_email_template action="INSERT_OR_UPDATE">
+        <collection>x_snc_interviewnw_interview</collection>
+        <email_layout/>
+        <message/>
+        <message_html><![CDATA[<p>BEGIN:VCALENDAR<br />PRODID:-//Service-now.com//Outlook 11.0 MIMEDIR//EN<br />VERSION:2.0<br />METHOD:REQUEST<br />BEGIN:VEVENT<br />ATTENDEE;ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:${to}<br />ORGANIZER:MAILTO:${from}<br />DTSTART:${dtstart}<br />DTEND:${dtend}<br />LOCATION:${location}<br />TRANSP:OPAQUE<br />SEQUENCE:${sys_mod_count}<br />UID:${number}<br />DTSTAMP:${dtstamp}<br />DESCRIPTION:${description}<br />SUMMARY:${summary}<br />PRIORITY:3<br />X-MICROSOFT-CDO-IMPORTANCE:${priority}<br />STATUS:CONFIRMED<br />CLASS:PUBLIC<br />END:VEVENT<br />END:VCALENDAR</p>]]></message_html>
+        <message_list/>
+        <message_text/>
+        <name>Interview Invite</name>
+        <sms_alternate/>
+        <subject/>
+        <sys_class_name>sysevent_email_template</sys_class_name>
+        <sys_created_by>Sravani_admin</sys_created_by>
+        <sys_created_on>2017-05-09 18:44:45</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>6a79abb213a2b60008ae79304244b0ae</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Interview Invite</sys_name>
+        <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+        <sys_update_name>sysevent_email_template_6a79abb213a2b60008ae79304244b0ae</sys_update_name>
+        <sys_updated_by>Sravani_admin</sys_updated_by>
+        <sys_updated_on>2017-05-09 18:53:11</sys_updated_on>
+        <sys_version>2</sys_version>
+    </sysevent_email_template>
+</record_update>

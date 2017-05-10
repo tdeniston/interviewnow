@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" extends="task" label="Candidate Profile" max_length="40" name="x_snc_interviewnw_candidate_profile" sizeclass="6" type="collection">
+        <element label="Available from" max_length="40" name="available_from" type="glide_date"/>
+        <element label="Citizen" max_length="40" name="citizen" type="boolean"/>
+        <element label="Contact" max_length="40" name="contact" type="string"/>
+        <element label="Current Address" max_length="400" name="current_address" type="string"/>
+        <element label="Current Company" max_length="40" name="current_company" type="string"/>
+        <element label="Email Address" max_length="40" name="email_adrress" type="string"/>
+        <element label="Experience" max_length="40" name="experience" type="integer"/>
+        <element label="Highest Level of Education" max_length="40" name="highest_level_of_education" type="string"/>
+        <element label="Job position" max_length="32" name="job_position" reference="x_snc_interviewnw_job_positions" type="reference"/>
+        <element display="true" label="Name" max_length="32" name="name" type="string"/>
+        <element label="Salary Expectation" max_length="20" name="salary_expectation" type="currency"/>
+        <element label="Skill Set" max_length="4000" name="skill_set" reference="x_snc_interviewnw_skills" type="glide_list"/>
+        <element choice="1" label="Visa Status" max_length="40" name="visa_status" type="choice">
+            <choice>
+                <element label="Work Visa" sequence="0" value="work"/>
+                <element label="Green Card" sequence="1" value="green"/>
+            </choice>
+        </element>
+    </element>
+</database>

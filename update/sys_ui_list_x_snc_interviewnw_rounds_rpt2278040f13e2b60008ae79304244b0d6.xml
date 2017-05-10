@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_snc_interviewnw_rounds" version="2" view="RPT2278040f13e2b60008ae79304244b0d6">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>number</element>
+            <list_id display_value="x_snc_interviewnw_rounds" element="NULL" name="x_snc_interviewnw_rounds" parent="NULL" relationship="NULL" sys_domain="global" view="e678c40f13e2b60008ae79304244b0d0">b6098c0f13e2b60008ae79304244b0b7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>Sravani_admin</sys_created_by>
+            <sys_created_on>2017-05-09 21:00:57</sys_created_on>
+            <sys_id>3e098c0f13e2b60008ae79304244b0b7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Sravani_admin</sys_updated_by>
+            <sys_updated_on>2017-05-09 21:00:57</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>state</element>
+            <list_id display_value="x_snc_interviewnw_rounds" element="NULL" name="x_snc_interviewnw_rounds" parent="NULL" relationship="NULL" sys_domain="global" view="e678c40f13e2b60008ae79304244b0d0">b6098c0f13e2b60008ae79304244b0b7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>Sravani_admin</sys_created_by>
+            <sys_created_on>2017-05-09 21:00:57</sys_created_on>
+            <sys_id>be098c0f13e2b60008ae79304244b0b7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Sravani_admin</sys_updated_by>
+            <sys_updated_on>2017-05-09 21:00:57</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assigned_to</element>
+            <list_id display_value="x_snc_interviewnw_rounds" element="NULL" name="x_snc_interviewnw_rounds" parent="NULL" relationship="NULL" sys_domain="global" view="e678c40f13e2b60008ae79304244b0d0">b6098c0f13e2b60008ae79304244b0b7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>Sravani_admin</sys_created_by>
+            <sys_created_on>2017-05-09 21:00:57</sys_created_on>
+            <sys_id>32098c0f13e2b60008ae79304244b0b8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Sravani_admin</sys_updated_by>
+            <sys_updated_on>2017-05-09 21:00:57</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>short_description</element>
+            <list_id display_value="x_snc_interviewnw_rounds" element="NULL" name="x_snc_interviewnw_rounds" parent="NULL" relationship="NULL" sys_domain="global" view="e678c40f13e2b60008ae79304244b0d0">b6098c0f13e2b60008ae79304244b0b7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>Sravani_admin</sys_created_by>
+            <sys_created_on>2017-05-09 21:00:57</sys_created_on>
+            <sys_id>b2098c0f13e2b60008ae79304244b0b8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Sravani_admin</sys_updated_by>
+            <sys_updated_on>2017-05-09 21:00:57</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>candidate_rating</element>
+            <list_id display_value="x_snc_interviewnw_rounds" element="NULL" name="x_snc_interviewnw_rounds" parent="NULL" relationship="NULL" sys_domain="global" view="e678c40f13e2b60008ae79304244b0d0">b6098c0f13e2b60008ae79304244b0b7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>Sravani_admin</sys_created_by>
+            <sys_created_on>2017-05-09 21:00:57</sys_created_on>
+            <sys_id>36098c0f13e2b60008ae79304244b0b8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Sravani_admin</sys_updated_by>
+            <sys_updated_on>2017-05-09 21:00:57</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>participants</element>
+            <list_id display_value="x_snc_interviewnw_rounds" element="NULL" name="x_snc_interviewnw_rounds" parent="NULL" relationship="NULL" sys_domain="global" view="e678c40f13e2b60008ae79304244b0d0">b6098c0f13e2b60008ae79304244b0b7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>Sravani_admin</sys_created_by>
+            <sys_created_on>2017-05-09 21:00:57</sys_created_on>
+            <sys_id>b6098c0f13e2b60008ae79304244b0b8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Sravani_admin</sys_updated_by>
+            <sys_updated_on>2017-05-09 21:00:57</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_snc_interviewnw_rounds</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>Sravani_admin</sys_created_by>
+            <sys_created_on>2017-05-09 21:00:57</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b6098c0f13e2b60008ae79304244b0b7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_interviewnw_rounds</sys_name>
+            <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+            <sys_update_name>sys_ui_list_x_snc_interviewnw_rounds_RPT2278040f13e2b60008ae79304244b0d6</sys_update_name>
+            <sys_updated_by>Sravani_admin</sys_updated_by>
+            <sys_updated_on>2017-05-09 21:00:57</sys_updated_on>
+            <sys_user/>
+            <view display_value="Rpt2278040f13e2b60008ae79304244b0d6" name="RPT2278040f13e2b60008ae79304244b0d6">e678c40f13e2b60008ae79304244b0d0</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

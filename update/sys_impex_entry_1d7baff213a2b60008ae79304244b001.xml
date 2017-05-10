@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_impex_entry">
+    <sys_impex_entry action="INSERT_OR_UPDATE">
+        <default_value/>
+        <field>interview_at</field>
+        <map display_value="Calender">117a27f213a2b60008ae79304244b026</map>
+        <mapped_field>interview_at</mapped_field>
+        <name>dtend</name>
+        <script/>
+        <sys_class_name>sys_impex_entry</sys_class_name>
+        <sys_created_by>Sravani_admin</sys_created_by>
+        <sys_created_on>2017-05-09 18:51:59</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>1d7baff213a2b60008ae79304244b001</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>dtend</sys_name>
+        <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+        <sys_update_name>sys_impex_entry_1d7baff213a2b60008ae79304244b001</sys_update_name>
+        <sys_updated_by>Sravani_admin</sys_updated_by>
+        <sys_updated_on>2017-05-09 18:51:59</sys_updated_on>
+        <table>x_snc_interviewnw_interview</table>
+        <type>field</type>
+        <var_name/>
+    </sys_impex_entry>
+</record_update>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <disabled>ignore</disabled>
+        <field>visa_status</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>abhinay</sys_created_by>
+        <sys_created_on>2017-05-09 15:53:59</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>57a287361322b60008ae79304244b04e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>visa_status</sys_name>
+        <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+        <sys_update_name>sys_ui_policy_action_57a287361322b60008ae79304244b04e</sys_update_name>
+        <sys_updated_by>abhinay</sys_updated_by>
+        <sys_updated_on>2017-05-09 15:53:59</sys_updated_on>
+        <table>x_snc_interviewnw_candidate_profile</table>
+        <ui_policy display_value="Hide visa status field visible if you are a citizen">aa8247361322b60008ae79304244b015</ui_policy>
+        <visible>false</visible>
+    </sys_ui_policy_action>
+</record_update>

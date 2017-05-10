@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="task" label="Rounds" max_length="40" name="x_snc_interviewnw_rounds" type="collection">
+        <element default="0" label="Candidate Rating" max_length="40" name="candidate_rating" type="integer"/>
+        <element label="Interview" max_length="32" name="interview" reference="x_snc_interviewnw_interview" type="reference"/>
+        <element label="Interview at" max_length="40" name="interview_at" type="glide_date_time"/>
+        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" label="Participants" max_length="1024" name="participants" reference="sys_user" type="glide_list"/>
+    </element>
+</database>

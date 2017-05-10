@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_view">
+    <sys_ui_view action="INSERT_OR_UPDATE">
+        <group/>
+        <hidden>false</hidden>
+        <name>RPT2278040f13e2b60008ae79304244b0d6</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>Sravani_admin</sys_created_by>
+        <sys_created_on>2017-05-09 20:58:29</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e678c40f13e2b60008ae79304244b0d0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Sravani_admin</sys_updated_by>
+        <sys_updated_on>2017-05-09 20:58:29</sys_updated_on>
+        <title>Rpt2278040f13e2b60008ae79304244b0d6</title>
+        <user/>
+    </sys_ui_view>
+</record_update>

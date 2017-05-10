@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="job_classification" table="x_snc_interviewnw_job_positions" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>job_classification</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Director</label>
+            <language>en</language>
+            <name>x_snc_interviewnw_job_positions</name>
+            <sequence>0</sequence>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:17:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9aa3e37e1362b60008ae79304244b02c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:17:38</sys_updated_on>
+            <value>Director</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>job_classification</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>EM/PM</label>
+            <language>en</language>
+            <name>x_snc_interviewnw_job_positions</name>
+            <sequence>1</sequence>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:17:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>1aa3e37e1362b60008ae79304244b02d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:17:38</sys_updated_on>
+            <value>EM/PM</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>job_classification</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Manager</label>
+            <language>en</language>
+            <name>x_snc_interviewnw_job_positions</name>
+            <sequence>2</sequence>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:17:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d2a3e37e1362b60008ae79304244b02e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:17:38</sys_updated_on>
+            <value>Manager</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>job_classification</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Recruiter</label>
+            <language>en</language>
+            <name>x_snc_interviewnw_job_positions</name>
+            <sequence>3</sequence>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:17:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9ea3e37e1362b60008ae79304244b02e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:17:38</sys_updated_on>
+            <value>Recruiter</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>job_classification</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Sales</label>
+            <language>en</language>
+            <name>x_snc_interviewnw_job_positions</name>
+            <sequence>4</sequence>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:17:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5aa3e37e1362b60008ae79304244b02f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:17:38</sys_updated_on>
+            <value>Sales</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>job_classification</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Technical</label>
+            <language>en</language>
+            <name>x_snc_interviewnw_job_positions</name>
+            <sequence>5</sequence>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:17:38</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>16a3e37e1362b60008ae79304244b030</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-09 18:17:38</sys_updated_on>
+            <value>Technical</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>job_classification</element>
+            <name>x_snc_interviewnw_job_positions</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>tim_deniston</sys_created_by>
+            <sys_created_on>2017-05-09 18:17:38</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>d2a3e37e1362b60008ae79304244b02d</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_name>job_classification</sys_name>
+            <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+            <sys_update_name>sys_choice_x_snc_interviewnw_job_positions_job_classification</sys_update_name>
+            <sys_updated_by>tim_deniston</sys_updated_by>
+            <sys_updated_on>2017-05-10 14:00:58</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

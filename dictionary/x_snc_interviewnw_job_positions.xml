@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Job Positions" max_length="40" name="x_snc_interviewnw_job_positions" type="collection">
+        <element label="Department" max_length="32" name="department" reference="cmn_department" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Job Classification" max_length="40" name="job_classification" type="string">
+            <choice>
+                <element label="Director" sequence="0" value="Director"/>
+                <element label="EM/PM" sequence="1" value="EM/PM"/>
+                <element label="Manager" sequence="2" value="Manager"/>
+                <element label="Recruiter" sequence="3" value="Recruiter"/>
+                <element label="Sales" sequence="4" value="Sales"/>
+                <element label="Technical" sequence="5" value="Technical"/>
+            </choice>
+        </element>
+        <element label="Job Grade" max_length="40" name="job_grade" type="integer"/>
+        <element display="true" label="Job Title" max_length="200" name="job_title" type="string"/>
+        <index name="index">
+            <element name="department"/>
+        </index>
+    </element>
+</database>

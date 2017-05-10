@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="task" label="Candidate Interviewers" max_length="40" name="x_snc_interviewnw_candidate_interviewers" sizeclass="11" type="collection">
+        <element default="0" label="Candidate Rating" max_length="40" name="candidate_rating" type="integer"/>
+        <element label="Interview Round" max_length="32" name="interview" reference="x_snc_interviewnw_rounds" reference_floats="true" type="reference"/>
+    </element>
+</database>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element attributes="hasWorkflow=true,live_feed=true" extends="task" label="Interview" max_length="40" name="x_snc_interviewnw_interview" sizeclass="10" type="collection">
+        <element label="Candidate" mandatory="true" max_length="32" name="candidate" reference="x_snc_interviewnw_candidate_profile" type="reference"/>
+        <element label="Interview at" max_length="40" name="interview_at" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Interview Type" max_length="40" name="interview_type" type="string">
+            <choice>
+                <element label="In-person" sequence="0" value="In-person"/>
+                <element label="Phone" sequence="1" value="Phone"/>
+                <element label="Video" sequence="2" value="Video"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Overall Rating" max_length="40" name="overall_rating" type="string"/>
+    </element>
+</database>

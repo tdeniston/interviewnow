@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>interview_schedule</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+          // Add your code here
+	template.print("Interview has been scheduled at" + current.interview_at + " for " + current.interview.candidate.getDisplayValue() + " with "+ current.assigned_to.getDisplayValue());
+	
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>Sravani_admin</sys_created_by>
+        <sys_created_on>2017-05-09 19:20:27</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>4d01b77a13a2b60008ae79304244b0e9</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>interview_schedule</sys_name>
+        <sys_package display_value="InterviewNOW" source="x_snc_interviewnw">204b7eba13ee760008ae79304244b00f</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="InterviewNOW">204b7eba13ee760008ae79304244b00f</sys_scope>
+        <sys_update_name>sys_script_email_4d01b77a13a2b60008ae79304244b0e9</sys_update_name>
+        <sys_updated_by>Sravani_admin</sys_updated_by>
+        <sys_updated_on>2017-05-09 21:22:05</sys_updated_on>
+    </sys_script_email>
+</record_update>
